@@ -3,7 +3,6 @@ layout: single
 permalink: /
 title: "About me"
 author_profile: true
-author: ding
 redirect_from: 
   - /about/
   - /about.html
