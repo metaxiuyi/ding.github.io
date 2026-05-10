@@ -1,18 +1,10 @@
----
-title: 'RL 学习第一弹：算法基础'
-date: 2026-05-10
-permalink: /posts/2026/05/rl-learning-1-algorithm-basics/
-tags:
-  - rl
-  - reinforcement-learning
-  - notes
----
 
 ## 什么是 RL 问题？
 
 > **强化学习（Reinforcement Learning）** 是研究智能体（Agent）如何在与环境的序列交互中，通过试错学习一个最优行为策略，以最大化长期累积奖励的理论框架。
 
 一句话理解：强化学习就是学习做什么能使 agent 累积收益最大化。
+![[Pasted image 20260508010646.png]]
 
 ---
 ## 数学建模框架
@@ -22,7 +14,7 @@ tags:
 ### 马尔科夫决策过程
 
 RL问题的理想数学化形式是马尔科夫决策过程（MDP) ：
-- ===和 pomdp 是什么区别？===
+
 $$\mathcal{M} = \langle \mathcal{S},\ \mathcal{A},\ \mathcal{P},\ \mathcal{R},\ \gamma \rangle$$
 
 | 符号            | 名称     | 含义                                                         |
@@ -41,10 +33,14 @@ $$P(s_{t+1} \mid s_t, a_t, s_{t-1}, a_{t-1}, \ldots) = P(s_{t+1} \mid s_t, a_t)$
 ---
 ### 轨迹数据
 
-把Agent 与环境一次完整交互的记录定义为一条**轨迹（Trajectory）**，简称$\tau$ ：
+把Agent 与环境一次完整交互的记录定义为一条**轨迹（Trajectory）**，简称$\tau$:
+
 $$\tau = (s_0, a_0, r_0,\ s_1, a_1, r_1,\ \ldots,\ s_T, a_T, r_T)$$
+
 由以下过程生成：
+
 $$s_0 \sim \rho_0(\cdot), \quad a_t \sim \pi_\theta(\cdot|s_t), \quad s_{t+1} \sim P(\cdot|s_t, a_t)$$
+
 策略 $\pi_\theta: \mathcal{S} \times \mathcal{A} \to [0,1]$，即 $\pi_\theta(a|s)$ 为在状态 $s$ 下采取动作 $a$ 的条件概率。
 
 ---
@@ -53,14 +49,13 @@ $$s_0 \sim \rho_0(\cdot), \quad a_t \sim \pi_\theta(\cdot|s_t), \quad s_{t+1} \s
 **折扣累积回报**（discounted return）定义为：
 
 $$G_t \triangleq \sum_{k=0}^{\infty} \gamma^k \, r_{t+k}$$
-```
-为什么要有折扣因子？
-- 保证收敛。
-- 近期奖励更重要。
-- 对抗模型误差。未来越远，预测越不准。折扣因子降低了远期预期的权重，提高鲁棒性。
-```
 
-强化学习的目标是找到一个最优的策略$\pi_\theta(a_t|s_t)$ 最大化从初始状态出发的期望折扣累积回报： $$ J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}\left[ \sum_{t=0}^{T} \gamma^t r_t \right] $$其中轨迹的概率分布为：
+强化学习的目标是找到一个最优的策略$\pi_\theta(a_t|s_t)$ 最大化从初始状态出发的期望折扣累积回报
+
+$$ J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}\left[ \sum_{t=0}^{T} \gamma^t r_t \right] $$
+
+其中轨迹的概率分布为:
+
 $$p_\theta(\tau) = \rho_0(s_0) \prod_{t=0}^{\infty} \pi_\theta(a_t|s_t) \, P(s_{t+1}|s_t, a_t)$$
 ---
 ## 核心基础概念
@@ -69,7 +64,6 @@ $$p_\theta(\tau) = \rho_0(s_0) \prod_{t=0}^{\infty} \pi_\theta(a_t|s_t) \, P(s_{
 
 含义：从状态$s$出发，沿着策略$\pi$执行期望获得的折扣累积回报。
 
-> 价值函数和策略有什么关系？为啥会带有上标$\pi$?  不同策略计算的价值函数不一样，存在最优价值函数
 $$V^\pi(s_t) = \mathbb{E}_\pi\left[\sum_{k=0}^{\infty} \gamma^k r_{t+k} \;\middle|\; s_t\right]$$
 
 ### 2.状态-动作函数$Q^\pi(s_t,a_t)$
