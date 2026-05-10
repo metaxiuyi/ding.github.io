@@ -1,5 +1,14 @@
 # Authors
 
+ding:
+  name        : "ding"
+  avatar      : "bio-photo.jpg"
+  bio         : "rl learner"
+  location    : "Location"
+  email       : "email@example.com"
+  github      : "ding"
+  twitter     : "ding"
+
 Name Name:
   name        : "Name Name"
   uri         : "https://name.com"
