@@ -29,7 +29,7 @@ author:
   location         : "Location"
   employer         : 
   uri              : # URL
-  email            : "email@example.com" 
+  email            :
 
   # Academic websites
   academia         : # URL
@@ -50,7 +50,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "ding"
+  github           : "metaxiuyi"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
@@ -73,7 +73,7 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : "ding" # Username for X / Twitter
+  twitter          : # Username for X / Twitter
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
