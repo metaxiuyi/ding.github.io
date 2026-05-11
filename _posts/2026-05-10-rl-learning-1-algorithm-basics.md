@@ -33,6 +33,7 @@ $$\mathcal{M} = \langle \mathcal{S},\ \mathcal{A},\ \mathcal{P},\ \mathcal{R},\ 
 | $\mathcal{P}$ | 状态转移概率 | $\mathcal{P}(s'\mid s,a) = P(s_{t+1}=s'\mid s_t=s, a_t=a)$ |
 | $\mathcal{R}$ | 奖励函数   | $\mathcal{R}(s,a)$，执行动作后的即时反馈                              |
 | $\gamma$      | 折扣因子   | $\gamma \in [0,1)$，控制未来奖励的权重                               |
+
 MDP 成立的核心假设：**马尔可夫性（Markov Property）**
 
 $$P(s_{t+1} \mid s_t, a_t, s_{t-1}, a_{t-1}, \ldots) = P(s_{t+1} \mid s_t, a_t)$$
