@@ -41,7 +41,7 @@ $$P(s_{t+1} \mid s_t, a_t, s_{t-1}, a_{t-1}, \ldots) = P(s_{t+1} \mid s_t, a_t)$
 ---
 ### 轨迹数据
 
-把Agent 与环境一次完整交互的记录定义为一条**轨迹（Trajectory）**，简称$\tau$ ：
+把Agent 与环境一次完整交互的记录定义为一条**轨迹（Trajectory）**，简称 $\tau$ ：
 
 $$\tau = (s_0, a_0, r_0,\ s_1, a_1, r_1,\ \ldots,\ s_T, a_T, r_T)$$
 
@@ -260,7 +260,7 @@ $$\boxed{L^{\text{PPO}}(\theta, \phi) = -L^{\text{CLIP}}(\theta) + c_1 \cdot L^{
 
 ### GRPO
 
-PPO 需要维护一个和策略网络**同等规模**的 Critic 网络来估计 V(s)V(s)。对于 70B 的模型，这意味着：
+PPO 需要维护一个和策略网络**同等规模**的 Critic 网络来估计 $V(s)$ 。对于 70B 的模型，这意味着：
 
 - 显存加倍
 - 训练成本加倍
