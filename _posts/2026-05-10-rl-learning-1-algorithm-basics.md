@@ -8,8 +8,6 @@ tags:
 
 # RL 算法原理
 
-> 这是一个 GitHub 风格优先的 Markdown 版本：去掉了 Obsidian 专属语法，使用标准图片、链接、表格和 LaTeX 公式块写法，便于在 GitHub 和常见 Markdown 渲染器中查看。
-
 ## 什么是 RL 问题？
 
 > **强化学习（Reinforcement Learning）** 是研究智能体（Agent）如何在与环境的序列交互中，通过试错学习一个最优行为策略，以最大化长期累积奖励的理论框架。
